@@ -1,0 +1,157 @@
+* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+.site-header {
+  /* background-color:; */
+  color: #fff;
+  padding: 20px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav ul li {
+  display: inline;
+}
+
+.main-nav ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+  background-color: #b9a06f;
+  border-radius: 5px;
+}
+.boxcenter {
+  width: 80%;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.font_title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form_content_container {
+  text-align: center;
+}
+
+.form_content {
+  text-align: center;
+}
+
+.row2 {
+  margin-bottom: 10px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+input[type="text"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  background-color:   #060d12;
+  color: #fff;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+  background-color: #b9a06f;
+}
+.label-text {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+input[type="text"] {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  max-width: 300px; /* Tùy chỉnh kích thước input */
+}
+
+/* Nút và link */
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  margin: 10px;
+  padding: 10px 40px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+  opacity: 0.8;
+}
+
+/* Định dạng cho tiêu đề */
+.font_title h1 {
+  color: #333;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-align: center;
+}
