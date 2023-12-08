@@ -21,7 +21,7 @@
         <?php
                  
                  extract($onesp);
-                 $hinh=$img_path.$img;
+                 $hinh = $img_path.$img;
 
         ?>
 
@@ -124,10 +124,8 @@
                 <ul>
                   <li>
                     <div class="items-Description selected gray-bg">
-                      <div class="Description"> <strong>The standard Lorem Ipsum passage, used since the 1500s</strong><br />
-                        <p>Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy  took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets</p>
-                        <p>Tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                      </div>
+                      <div class="Description"> <strong>Mô tả sản phẩm</strong><br />
+                        <p><?= $mota?></p>
                     </div>
                   </li>
                   <li>
@@ -137,53 +135,13 @@
                   <li>
                     <div class="items-Reviews gray-bg">
                       <div class="comments-area">
-                        <h4>Comments<span>(2)</span></h4>
+                        <h4>Bình luận</h4>
                         <ul class="comment-list mt-30">
+                         <!-- Load binh luan theo id san pham -->
                           <li>
                             <div class="comment-user"> <img src="images/comment-user.jpg" alt="Honour"> </div>
                             <div class="comment-detail">
-                              <div class="user-name">John Doe</div>
-                              <div class="post-info">
-                                <ul>
-                                  <li>Fab 11, 2016</li>
-                                  <li><a href="#"><i class="fa fa-reply"></i>Reply</a></li>
-                                </ul>
-                              </div>
-                              <p>Consectetur adipiscing elit integer sit amet augue laoreet maximus nuncac.</p>
-                            </div>
-                            <ul class="comment-list child-comment">
-                              <li>
-                                <div class="comment-user"> <img src="images/comment-user.jpg" alt="Honour"> </div>
-                                <div class="comment-detail">
-                                  <div class="user-name">John Doe</div>
-                                  <div class="post-info">
-                                    <ul>
-                                      <li>Fab 11, 2016</li>
-                                      <li><a href="#"><i class="fa fa-reply"></i>Reply</a></li>
-                                    </ul>
-                                  </div>
-                                  <p>Consectetur adipiscing elit integer sit amet augue laoreet maximus nuncac.</p>
-                                </div>
-                              </li>
-                              <li>
-                                <div class="comment-user"> <img src="images/comment-user.jpg" alt="Honour"> </div>
-                                <div class="comment-detail">
-                                  <div class="user-name">John Doe</div>
-                                  <div class="post-info">
-                                    <ul>
-                                      <li>Fab 11, 2016</li>
-                                      <li><a href="#"><i class="fa fa-reply"></i>Reply</a></li>
-                                    </ul>
-                                  </div>
-                                  <p>Consectetur adipiscing elit integer sit amet augue laoreet maximus nuncac.</p>
-                                </div>
-                              </li>
-                            </ul>
-                          </li>
-                          <li>
-                            <div class="comment-user"> <img src="images/comment-user.jpg" alt="Honour"> </div>
-                            <div class="comment-detail">
-                              <div class="user-name">John Doe</div>
+                              <div class="user-name">Tên</div>
                               <div class="post-info">
                                 <ul>
                                   <li>Fab 11, 2016</li>
@@ -196,20 +154,14 @@
                         </ul>
                       </div>
                       <div class="main-form mt-30">
-                        <h4>Leave a comments</h4>
+                        <h4>Để lại một bình luận</h4>
                         <div class="row mt-30">
-                          <form >
-                            <div class="col-sm-4 mb-30">
-                              <input type="text" placeholder="Name" required>
-                            </div>
-                            <div class="col-sm-4 mb-30">
-                              <input type="email" placeholder="Email" required>
-                            </div>
-                            <div class="col-sm-4 mb-30">
-                              <input type="text" placeholder="Website" required>
-                            </div>
+                          <form action="" method="POST" >
                             <div class="col-xs-12 mb-30">
-                              <textarea cols="30" rows="3" placeholder="Message" required></textarea>
+                              <textarea cols="30" rows="3" name="noidung" placeholder="Message" required></textarea>
+                              <input type="text" name="iduser" value="" placeholder="Name" required >
+                              <input type="text" name="idpro" value="<?=$id?>" placeholder="Name" required >
+                              <input type="text" name="ngaybinhluan" placeholder="Name" value="<?php echo date('Y-m-d'); ?>" required>
                             </div>
                             <div class="col-xs-12 mb-30">
                               <button class="btn-black" name="submit" type="submit">Submit</button>
