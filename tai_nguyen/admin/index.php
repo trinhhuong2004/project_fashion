@@ -5,14 +5,29 @@ include "../model/pdo.php";
 include "../model/danhmuc.php";  
 include "../model/sanpham.php";
 include "../model/taikhoan.php";
+include "../model/binhluan.php";
+include "../model/thongke.php";
 include "header.php"; 
+$statisticalDate_ago = statisticalDate_ago();
+$statistical_sale = statistical_sale(date('Y-m-d', time() - (86400 * 7)), date('Y-m-d', time()));
+?>
 
-
-//controler
-if(isset($_GET['act'])){
-    $act=$_GET['act'];
-    switch($act){
-
+   <?php
+    if (isset($_GET['act']) && $_GET['act'] != "") {
+        $act = $_GET['act'];
+        switch ($act) {
+           case 'home':
+            if (isset($_POST['search']) && ($_POST['search'])) {
+                $start_date = isset($_POST['start_date']) ? $_POST['start_date'] : null;
+                $end_date = isset($_POST['end_date']) ? $_POST['end_date'] : null;
+                $choose_time = isset($_POST['choose_time']) ? $_POST['choose_time'] : null;
+            
+                $statistical_sale = statistical_sale($start_date, $end_date, $choose_time);
+            }
+            $statisticalDate_ago = statisticalDate_ago();
+            // var_dump($statisticalDate_ago);
+            include 'home.php';
+            break;
         case 'adddm':
             // Kiểm tra xem người có click vào nut add hay không 
             if(isset($_POST['themmoi']) && $_POST['themmoi']){
@@ -59,8 +74,6 @@ if(isset($_GET['act'])){
             $listdanhmuc=pdo_query($sql);
             include "danhmuc/list.php";
             break;
-
- // CONTROLLER CHO PHẦN SẢN PHẨM
 
                 case 'addsp':
                    
@@ -117,6 +130,7 @@ if(isset($_GET['act'])){
                     $listdanhmuc=loadall_danhmuc();
                     include "sanpham/update.php";
                 break;
+                // Update sản sản phẩm  
                 case "updatesp":
                     if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
                         $iddm=$_POST['iddm'];
@@ -140,33 +154,47 @@ if(isset($_GET['act'])){
                        $listdanhmuc=loadall_danhmuc();
                     include "sanpham/list.php";
                 break;
+                // Danh sách khách hàng
                 case 'dskh':
                     $listtaikhoan=loadall_taikhoan();
                     include "taikhoan/list.php";
                 break;
 
-
-                case 'xoatk':
-                    // muốn xóa thì phải kiểm tra id
+                    // Khóa tài khoản
+                case 'khoatk':
                     if(isset($_GET['id'])&&($_GET['id'])>0){
-                        delete_taikhoan($_GET['id']);
-                        
+                        update_taikhoan($_GET['id']);
+                    header('Location: index.php?act=dskh');
+
                     }
-    
-                    $listtaikhoan=loadall_taikhoan();
-                    include "taikhoan/list.php";
+
+                 
+                break;
+                // Mở tài khoản
+                case 'motk':
+                    if(isset($_GET['id'])&&($_GET['id'])>0){
+                        update_taikhoan_mo($_GET['id']);
+                    header('Location: index.php?act=dskh');
+
+                    }
+                   
                 break;
                  
 
-                case "suatk":
-                    //vì là hàm có trả về nên 
-                    if(isset($_GET['id'])&&($_GET['id']>0)){
-                   $listtaikhoan=loadall_taikhoan($_GET['id']);
-                    }
-                    $listtaikhoan=loadall_taikhoan();
-                    include "taikhoan/update.php";
-                break;
-
+                // Load tất cả bình luận
+                case "dsbl":
+                    $listbinhluan = loadall_binhluan();
+                    include "binhluan/list.php";
+                    break;
+                    case 'xoabl':
+                        if(isset($_GET['id'])){
+                            $id = $_GET['id'];
+                            delete_binhluan($id);
+                            header('Location: index.php?act=dsbl'); // Sửa đường dẫn chuyển hướng
+                            // Đảm bảo kết thúc script sau khi chuyển hướng
+                        }
+                        break;
+                    
             default:
             include "home.php";
             break;

@@ -14,13 +14,13 @@ function checkemail($email){
     return $sp;
 }
 
-function update_taikhoan($id,$user,$pass,$email,$address,$tel){
-   
-     //  $sql="update sanpham set iddm='".$iddm."',name='".$tensp."',price='".$giasp."',mota='".$mota."' where id=".$id;
-      $sql=  "UPDATE `taikhoan` SET `user` = '{$user}', `pass` = '{$pass}', `email` = '{$email}', `address` = '{$address}',  `tel` = '{$tel}' WHERE `taikhoan`.`id` = $id";
-    
- 
-    pdo_execute($sql);
+function update_taikhoan($id){
+    $sql="UPDATE taikhoan SET trang_thai = 1 WHERE id = $id";
+  pdo_execute($sql);
+}
+function update_taikhoan_mo($id){
+    $sql="UPDATE taikhoan SET trang_thai = 0 WHERE id = $id";
+  pdo_execute($sql);
 }
 function delete_taikhoan($id){
     $sql="delete from taikhoan where id=".$id ;

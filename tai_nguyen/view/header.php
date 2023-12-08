@@ -80,153 +80,33 @@
         <div class="right-side float-none-sm">
           <div id="menu" class="navbar-collapse collapse left-side" >
             <ul class="nav navbar-nav navbar-left">
-
-
-
-            <?php
-                      foreach ($dsdm as $dm) {
-                        extract($dm);
-                        $linkdm="index.php?act=sanpham&iddm=".$id;
-                        echo ' <li class="level"> <span class="opener plus"></span> <a href="'.$linkdm.'" class="page-scroll">'.$name.'</a> 
-                         <div class="megamenu mobile-sub-menu">
-                          <div class="megamenu-inner-top">
-                            <ul class="sub-menu-level1">
-                              <li class="level2"> <a href="shop.html"><span>Women Clothings</span></a>
-                                <ul class="sub-menu-level2">
-                                  <li class="level3"><a href="shop.html"><span>■</span>Dresses</a></li>
-                                  <li class="level3"><a href="shop.html"><span>■</span>Sport Jeans</a></li>
-                                  <li class="level3"><a href="shop.html"><span>■</span>Skirts</a></li>
-                                  <li class="level3"><a href="shop.html"><span>■</span>Tops</a></li>
-                                  <li class="level3"><a href="shop.html"><span>■</span>Sleepwear</a></li>
-                                  <li class="level3"><a href="shop.html"><span>■</span>Jeans</a></li>
-                                </ul>
-                              </li>
-                              <li class="level2"> <a href="shop.html"><span>Women Fashion</span></a>
-                                <ul class="sub-menu-level2 ">
-                                  <li class="level3"><a href="shop.html"><span>■</span>Blazer & Coat</a></li>
-                                  <li class="level3"><a href="shop.html"><span>■</span>Sport Shoes</a></li>
-                                  <li class="level3"><a href="shop.html"><span>■</span>Phone Cases</a></li>
-                                  <li class="level3"><a href="shop.html"><span>■</span>Trousers</a></li>
-                                  <li class="level3"><a href="shop.html"><span>■</span>Purse</a></li>
-                                  <li class="level3"><a href="shop.html"><span>■</span>Wallets</a></li>
-                                </ul>
-                              </li>
-                            </ul>
-                          </div>
-                        </div> 
-                       </li> ';             
-                      }
-                     ?>  
-              <!-- <li class="level"> <span class="opener plus"></span> <a href="shop.html" class="page-scroll">Women</a> -->
-                <!-- <div class="megamenu mobile-sub-menu">
-                  <div class="megamenu-inner-top">
-                    <ul class="sub-menu-level1">
-                      <li class="level2"> <a href="shop.html"><span>Women Clothings</span></a>
-                        <ul class="sub-menu-level2">
-                          <li class="level3"><a href="shop.html"><span>■</span>Dresses</a></li>
-                          <li class="level3"><a href="shop.html"><span>■</span>Sport Jeans</a></li>
-                          <li class="level3"><a href="shop.html"><span>■</span>Skirts</a></li>
-                          <li class="level3"><a href="shop.html"><span>■</span>Tops</a></li>
-                          <li class="level3"><a href="shop.html"><span>■</span>Sleepwear</a></li>
-                          <li class="level3"><a href="shop.html"><span>■</span>Jeans</a></li>
-                        </ul>
-                      </li>
-                      <li class="level2"> <a href="shop.html"><span>Women Fashion</span></a>
-                        <ul class="sub-menu-level2 ">
-                          <li class="level3"><a href="shop.html"><span>■</span>Blazer & Coat</a></li>
-                          <li class="level3"><a href="shop.html"><span>■</span>Sport Shoes</a></li>
-                          <li class="level3"><a href="shop.html"><span>■</span>Phone Cases</a></li>
-                          <li class="level3"><a href="shop.html"><span>■</span>Trousers</a></li>
-                          <li class="level3"><a href="shop.html"><span>■</span>Purse</a></li>
-                          <li class="level3"><a href="shop.html"><span>■</span>Wallets</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </div> -->
-              <!-- </li> -->
-              <!-- <li class="level"> <span class="opener plus"></span> <a href="shop.html" class="page-scroll">Men</a> -->
-                <!-- <div class="megamenu full mobile-sub-menu">
-                  <div class="container">
-                    <div class="megamenu-inner">
-                      <div class="megamenu-inner-top">
-                        <div class="row">
-                          <div class="col-md-3 level2"> <a href="shop.html"><span>Men Fashion</span></a>
-                            <ul class="sub-menu-level2 ">
-                              <li class="level3"><a href="shop.html"><span>■</span>Blazer & Coat</a></li>
-                              <li class="level3"><a href="shop.html"><span>■</span>Sport Shoes</a></li>
-                              <li class="level3"><a href="shop.html"><span>■</span>Phone Cases</a></li>
-                              <li class="level3"><a href="shop.html"><span>■</span>Trousers</a></li>
-                              <li class="level3"><a href="shop.html"><span>■</span>Purse</a></li>
-                              <li class="level3"><a href="shop.html"><span>■</span>Wallets</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-md-3 level2"> <a href="shop.html"><span>Juniors kid</span></a>
-                            <ul class="sub-menu-level2 ">
-                              <li class="level3"><a href="shop.html"><span>■</span>Blazer & Coat</a></li>
-                              <li class="level3"><a href="shop.html"><span>■</span>Sport Shoes</a></li>
-                              <li class="level3"><a href="shop.html"><span>■</span>Phone Cases</a></li>
-                              <li class="level3"><a href="shop.html"><span>■</span>Trousers</a></li>
-                              <li class="level3"><a href="shop.html"><span>■</span>Purse</a></li>
-                              <li class="level3"><a href="shop.html"><span>■</span>Wallets</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-md-3 level2"> <a href="shop.html"><span>Men Clothings</span></a>
-                            <ul class="sub-menu-level2 ">
-                              <li class="level3"><a href="shop.html"><span>■</span>Blazer & Coat</a></li>
-                              <li class="level3"><a href="shop.html"><span>■</span>Chinos & Trousers</a></li>
-                              <li class="level3"><a href="shop.html"><span>■</span>Underwear</a></li>
-                              <li class="level3"><a href="shop.html"><span>■</span>Trousers</a></li>
-                              <li class="level3"><a href="shop.html"><span>■</span>Purse</a></li>
-                              <li class="level3"><a href="shop.html"><span>■</span>Wallets</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-md-3 level2 visible-lg visible-md"> <a href="shop.html"> <img src="images/drop_banner.jpg" alt="Honour"> </a> </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li> -->
-              <!-- <li class="level"><a href="shop.html" class="page-scroll">Juniors</a></li> -->
-              <!-- <li class="level"> <span class="opener plus"></span> <a href="shop.html" class="page-scroll">Kids</a> -->
-                <!-- <div class="megamenu mobile-sub-menu">
-                  <div class="megamenu-inner-top">
-                    <ul class="sub-menu-level1">
-                      <li class="level2"> <a href="shop.html"><span>Kids Fashion</span></a>
-                        <ul class="sub-menu-level2 ">
-                          <li class="level3"><a href="shop.html"><span>■</span>Blazer & Coat</a></li>
-                          <li class="level3"><a href="shop.html"><span>■</span>Sport Shoes</a></li>
-                          <li class="level3"><a href="shop.html"><span>■</span>Phone Cases</a></li>
-                          <li class="level3"><a href="shop.html"><span>■</span>Trousers</a></li>
-                          <li class="level3"><a href="shop.html"><span>■</span>Purse</a></li>
-                          <li class="level3"><a href="shop.html"><span>■</span>Wallets</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li> -->
-              <!-- <li class="level"><a href="shop.html" class="page-scroll">Baby</a></li> -->
-              <li class="level"> <span class="opener plus"></span> <a class="page-scroll">Pages</a>
+              <li class="level"> <span class="opener plus"></span> <a href="index.php" class="page-scroll">Trang chủ</a></li>
+              <li class="level"> <span class="opener plus"></span> <a class="page-scroll">Sản phẩm</a>
                 <div class="megamenu mobile-sub-menu">
                   <div class="megamenu-inner-top">
-                    <ul class="sub-menu-level1">
-                      <li class="level2">
-                        <ul class="sub-menu-level2 ">
-                          <li class="level3"><a href="about.html"><span>■</span>About Us</a></li>
-                          <li class="level3"><a href="account.html"><span>■</span>Account</a></li>
-                          <li class="level3"><a href="checkout.html"><span>■</span>Checkout</a></li>
-                          <li class="level3"><a href="contact.html"><span>■</span>Contact</a></li>
-                          <li class="level3"><a href="404.html"><span>■</span>404 Error</a></li>
-                          <li class="level3"><a href="blog.html"><span>■</span>Blog</a></li>
-                          <li class="level3"><a href="single-blog.html"><span>■</span>Single Blog</a></li>
-                        </ul>
-                      </li>
-                    </ul>
+                    
+                      <?php
+                         foreach ($dsdm as $dm) {
+                        extract($dm);
+                        $linkdm="index.php?act=sanpham&iddm=".$id;
+                        echo '
+                          <ul class="sub-menu-level1">
+                          <li class="level2"> 
+                            <ul class="sub-menu-level2 ">
+                            <li class="level3"><a href="'.$linkdm.'"><span>■</span>'.$name.'</a></li>
+
+                            </ul>    
+                            </li>
+                          </ul>
+                        ';
+                         }?>
+                  
                   </div>
                 </div>
               </li>
+              <li class="level"> <span class="opener plus"></span> <a href="index.php?act=gioithieu" class="page-scroll">Giới thiệu</a></li>
+              <li class="level"> <span class="opener plus"></span> <a href="index.php?act=lienhe" class="page-scroll">Liên hệ</a></li>
+
             </ul>
           </div>
           <div class="right-side float-left-xs header-right-link">

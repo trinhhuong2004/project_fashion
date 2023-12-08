@@ -50,23 +50,10 @@
                       <span class="info-deta">20MVC-18</span> </div>
                   </div>
                   <p><?=$mota?></p>
-                  <div class="product-size select-arrow mb-20 mt-30">
-                    <label>Size</label>
-                    <select class="selectpicker form-control" id="select-by-size">
-                      <option selected="selected" value="#">S</option>
-                      <option value="#">M</option>
-                      <option value="#">L</option>
-                    </select>
+                  <div class="product-color select-arrow mb-40">
+                    
                   </div>
-                  <div class="product-color select-arrow mb-20">
-                    <label>Color</label>
-                    <select class="selectpicker form-control" id="select-by-color">
-                      <option selected="selected" value="#">Blue</option>
-                      <option value="#">Green</option>
-                      <option value="#">Orange</option>
-                      <option value="#">White</option>
-                    </select>
-                  </div>
+                 
                   <div class="mb-40">
                     <div class="product-qty">
                       <label for="qty">Qty:</label>
@@ -128,9 +115,8 @@
           <div class="col-md-12">
             <div id="tabs">
               <ul class="nav nav-tabs">
-                <li><a class="tab-Description selected" title="Description">Description</a></li>
-                <li><a class="tab-Product-Tags" title="Product-Tags">Product-Tags</a></li>
-                <li><a class="tab-Reviews" title="Reviews">Reviews</a></li>
+                <li><a class="tab-Description selected" title="Description">Mô tả</a></li>
+                <li><a class="tab-Reviews" title="Reviews">Bình luận</a></li>
               </ul>
             </div>
             <div id="items">
