@@ -1,50 +1,84 @@
-
-<div class="boxcenter">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website bán hàng</title>
+    <link rel="stylesheet" href="css1/css.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+            font-weight: bold;
+        }
+        td {
+            color: #666;
+        }
+        /* Các phần tử nút */
+        input[type="button"] {
+            padding: 15px 30px;
+            border: none;
+            background-color: black ;
+            color: white;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        input[type="button"]:hover {
+            background-color: #b9a06f;
+        }
+    </style>
+</head>
+<body>
+    <div class="boxcenter">
+    
         <div class="row2">
          <div class="row2 font_title">
-          <h1>DANH sach tai khoan</h1>
+          <h1>DANH SÁCH BÌNH LUẬN</h1>
          </div>
          <div class="row2 form_content ">
-          <form action="#" method="POST">
-           <div class="row2 mb10 formds_loai">
            <table>
             <tr>
                 <th></th>
-                <th>ID</th>
-                <th>Nội dung</th>
-                <th>Iduser</th>
-                <th>Idpro</th>
-                <th>Ngày bình luận</th>
-                
+                <th>MÃ BÌNH LUẬN</th>
+                <th>NỘI DUNG</th>
+                <th>TÊN TÀI KHOẢN</th>
+                <th>TÊN SẢN PHẨM</th>
+                <th>NGÀY BÌNH LUẬN</th>
+                <th></th>
+                <th>THAO TÁC</th>
             </tr>
-            <?php 
-            foreach($listbinhluan as $binhluan){
-                extract($binhluan);
-                $suabl="index.php?act=suabl&id=".$id;
-                $xoabl="index.php?act=xoabl&id=".$id;
-             echo ' <tr>
-             <td><input type="checkbox" name="" id=""></td>
-             <td>'.$id.'</td>
-             <td>'.$noidung.'</td>
-             <td>'.$iduser.'</td>
-             <td>'.$idpro.'</td>
-             <td>'.$ngaybinhluan.'</td>
-            
-             <td>  <a href="'.$xoabl.'"><input type="button" value="Xóa"></a> </td>
-         </tr>';
-            }
-            ?>
-           
-            
+               <?php
+               foreach($listbinhluan as $bl){
+                   extract($bl);
+                   $xoasp="index.php?act=xoabl&id=".$id;
+                  
+                   echo ' <tr>
+                        <td><input type="checkbox" name="" id=""></td>
+                        <td>'.$id.'</td>
+                        <td>'.$noidung.'</td>
+                        <td>'.$iduser.'</td>
+                        <td>'.$idpro.'</td>
+                        <td>'.$ngaybinhluan.'</td>
+                        <td></td>
+                    <td> <a href="'.$xoasp.'"><input type="button" value="Xóa"></a> </td>
+                    </tr>';
+               }
+               ?>
+               
            </table>
-           <!-- </div>
-           <div class="row mb10 ">
-         <input class="mr20" type="button" value="CHỌN TẤT CẢ">
-         <input  class="mr20" type="button" value="BỎ CHỌN TẤT CẢ">
-         <input  class="mr20" type="button" value="XÓA CÁC MỤC ĐÃ CHỌN">
-          <a href="index.php?act=adddm"> <input  class="mr20" type="button" value="NHẬP THÊM"></a>
-           </div> -->
-          </form>
+           </div>
+          
          </div>
         </div>
       
