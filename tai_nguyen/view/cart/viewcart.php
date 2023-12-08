@@ -24,43 +24,29 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php
-                  
-                  $tong=0;
-                  $i=0;
-                foreach ($_SESSION['mycart'] as $cart) {
-                    
-                      $hinh=$img_path.$cart[2];
-                     $ttien=$cart[3]*$cart[4];
-                     $tong+=$ttien;
-                     $xoasp="index.php?act=delcart&idcart=".$i;
-                     echo '<tr>
-                     <td><a href="product-page.html">
-                       <div class="product-image"><img alt="Honour" src="'.$hinh.'"></div>
-                       </a></td>
-                     <td><div class="product-title"> <a href="product-page.html">'.$cart[1].'</a> </div></td>
-                     <td><ul>
-                         <li>
-                           <div class="base-price price-box"> <span class="price">'.$cart[3].'</span> </div>
-                         </li>
-                       </ul></td>
-                     <td><div class="input-box">
-                         <select data-id="100" class="quantity_cart" name="quantity_cart">
-                          
-                           <option value="2">'.$cart[4].'</option>
-                           
-                          
-                         </select>
-                       </div></td>
-                     <td><div class="total-price price-box"> <span class="price">'. $ttien.'</span> </div></td>
-                     <td><a href="'.$xoasp.'"><i title="Remove Item From Cart" data-id="100" class="fa fa-trash cart-remove-item"></i></a></td>
-                   </tr>';
-                   $i+=1;
-                }
-
-                
-        ?>
-                  
+                <?php
+                    $total = 0;
+                    $i = 0;
+                    // var_dump($_SESSION['mycart']);
+                    // unset($_SESSION['mycart']);
+                    // $add_sp = [$idpro, $name, $price, $img, $soluong, $mota, $tong];
+                    foreach($_SESSION['mycart'] as $cart) :
+                        $img = $img_path. $cart[3];
+                        $thanhtien = $cart[2] * $cart[4];
+                        $total += $thanhtien;
+                        $link="?act=delcart&idcart=$i";
+                  ?>
+                    <tr>
+                     <td><div class="product-title"><img width="100px" src="<?=$img?>" alt=""></div></td>
+                     <td><div class="base-price price-box"> <span class="price"><?=$cart[1]?></span> </div></td>
+                     <td><div class="input-box"><?=$cart[2]?></div></td>
+                     <td><div class="input-box"><?=$cart[4]?></div></td>
+                     <td><div class="input-box"><?=$thanhtien?></div></td>
+                     
+                     <td><a href="<?=$link?>"><i title="Remove Item From Cart" data-id="100" class="fa fa-trash cart-remove-item"></i></a></td>
+                   </tr>
+                   
+                   <?php $i++; endforeach; ?>
                 </tbody>
               </table>
             </div>
@@ -70,10 +56,10 @@
       <div class="mb-30">
         <div class="row">
           <div class="col-sm-6">
-            <div class="mt-30"> <a href="shop.html" class="btn btn-black"><span><i class="fa fa-angle-left"></i></span>Continue Shopping</a> </div>
+            <div class="mt-30"> <a href="?act=home" class="btn btn-black"><span><i class="fa fa-angle-left"></i></span>Tiếp tục mua hàng</a> </div>
           </div>
           <div class="col-sm-6">
-            <div class="mt-30 right-side float-none-xs"> <a class="btn btn-black">Update Cart</a> </div>
+            <div class="mt-30 right-side float-none-xs"> <a href="?act=delcart" class="btn btn-black">Xóa giỏ hàng</a> </div>
           </div>
         </div>
       </div>
@@ -94,7 +80,7 @@
                     
                     <tr>
                       <td><b>Amount Payable</b></td>
-                      <td><div class="price-box"> <span class="price"><b><?=$tong?></b></span> </div></td>
+                      <td><div class="price-box"> <span class="price"><b><?=$total?></b></span> </div></td>
                     </tr>
                   </tbody>
                 </table>
@@ -107,7 +93,7 @@
       <div class="mt-30">
         <div class="row">
           <div class="col-xs-12">
-            <div class="right-side float-none-xs"> <a href="checkout.html" class="btn btn-black">Proceed to checkout<span><i class="fa fa-angle-right"></i></span></a> </div>
+            <div class="right-side float-none-xs"> <a href="?act=thanhtoan" class="btn btn-black">Tiến hành thanh toán<span><i class="fa fa-angle-right"></i></span></a> </div>
           </div>
         </div>
       </div>

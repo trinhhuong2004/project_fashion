@@ -244,31 +244,42 @@
               <li class="account-icon"> <a href="#"><span></span></a>
                 <div class="header-link-dropdown account-link-dropdown">
                   <ul class="link-dropdown-list">
-                    <li> <span class="dropdown-title">Default welcome msg!</span>
+                    <?php
+                      // Kiểm tra xem session 'id' có tồn tại và không rỗng hay không
+                      if (!isset($_SESSION['user'])) {
+                        // Nếu không có session 'id', người dùng là khách hàng
+                    ?>
+                    <li> <span class="dropdown-title">Hello </span>
                       <ul>
-                        <li><a href="index.php?act=dangnhap">Sign In</a></li>
-                        <li><a href="index.php?act=dangky">Create an Account</a></li>
+                        <li><a href="index.php?act=dangnhap">Đăng nhập</a></li>
+                        <li><a href="index.php?act=dangky">Đăng ký</a></li>
                       </ul>
-                    </li>
-                    <li> <span class="dropdown-title">Language :</span>
+                      <?php
+                       } else {
+                          if ($_SESSION['user']['role'] == 1) { 
+                      ?>
                       <ul>
-                        <li><a class="active" href="#">English</a></li>
-                        <li><a href="#">French</a></li>
-                        <li><a href="#">German</a></li>
+                          <li><a href="index.php?act=edit_taikhoan">Thông tin tài khoản</a></li>
+                          <li><a href="admin/index.php?act=home">Admin</a></li>
+                          <li><a href="index.php?act=thoat">Đăng xuất</a></li>
                       </ul>
+                      <?php } else { ?>
+                        <ul>
+                          <li><a href="index.php?act=edit_taikhoan">Thông tin tài khoản</a></li>
+                          <li><a href="index.php?act=list_history_order&id_account=<?=$_SESSION['user']['id']?>">Lịch sử đơn hàng</a></li>
+                          <li><a href="index.php?act=thoat">Đăng xuất</a></li>
+                        </ul>
+                      <?php
+                        }
+                      }
+                      ?>
                     </li>
-                    <li> <span class="dropdown-title">Currency :</span>
-                      <ul>
-                        <li><a class="active" href="#">USD</a></li>
-                        <li><a href="#">AUD</a></li>
-                        <li><a href="#">EUR</a></li>
-                      </ul>
-                    </li>
+                    
                   </ul>
                 </div>
               </li>
-              <li class="cart-icon"> <a href="index.php?act=addtocart"> <span> <small class="cart-notification">2</small> </span> </a>
-                <div class="cart-dropdown header-link-dropdown">
+              <li class="cart-icon"> <a href="index.php?act=viewcart"> <span> <small class="cart-notification"><?php (isset($_SESSION['mycart'])) ? $mess = count($_SESSION['mycart']) : $mess = 0; echo $mess;?></small> </span> </a>
+                <!-- <div class="cart-dropdown header-link-dropdown">
                   <ul class="cart-list link-dropdown-list">
                     <li> <a class="close-cart"><i class="fa fa-times-circle"></i></a>
                       <div class="media"> <a class="pull-left"> <img alt="Minimo" src="images/1.jpg"></a>
@@ -300,7 +311,7 @@
                   <p class="cart-sub-totle"> <span class="pull-left">Cart Subtotal</span> <span class="pull-right"><strong class="price-box">$29.98</strong></span> </p>
                   <div class="clearfix"></div>
                   <div class="mt-20"> <a href="index.php?act=addtocart" class="btn-color btn">Cart</a> <a href="index.php?act=bill" class="btn-color btn right-side">Checkout</a> </div>
-                </div>
+                </div> -->
               </li>
             </ul>
           </div>

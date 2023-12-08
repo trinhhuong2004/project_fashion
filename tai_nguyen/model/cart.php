@@ -142,4 +142,66 @@ function loadone_bill($id){
   $bill=pdo_query_one($sql);
   return $bill;
 }
+
+function method_pay($n) {
+  switch ($n) {
+      case '1':
+          $pay = "Thanh toán khi nhận";
+          break;
+      case '2':
+          $pay = "Thanh toán VNPay";
+          break;
+      
+      default:
+          $pay = "Thanh toán khi nhận";
+          break;
+  }
+  return $pay;
+}
+function show_status($n) {
+  switch ($n) {
+      case '1':
+          $mess = "Đang chờ duyệt";
+          break;
+      case '2':
+          $mess = "Đã xác nhận";
+          break;
+      case '3':
+          $mess = "Đang vận chuyển";
+          break;
+      case '4':
+          $mess = "Hoàn thành";
+          break;
+      
+      default:
+          $mess = "Đang chờ duyệt";
+          break;
+  }
+  return $mess;
+}
+
+// Thanh toán
+// $_SESSION['order'] = [$id_user, $ngay_dat, $tong_don, $name, $email, $phone, $dia_chi, $pttt];
+function tao_id_order($id_user, $ngay_dat, $tong_don, $name, $email, $phone, $dia_chi, $pttt) {
+  $sql = "INSERT INTO tbl_order (id_user, ngaydathang, tongtien, hoten, email, sdt, diachi, pttt)
+  VALUES('".$id_user."', '".$ngay_dat."', '".$tong_don."', '".$name."', '".$email."', '".$phone."', '".$dia_chi."', '".$pttt."')";
+  return pdo_execute_return_lastInsertId($sql);
+}
+
+function them_order_detail($new_id_order, $id_san_pham, $ten_san_pham, $hinh_anh, $so_luong, $don_gia) {
+  $sql = "INSERT INTO order_detail (id_order, id_pro, tensp, hinhanh, soluong, dongia)
+  VALUES(?, ?, ?, ?, ?, ?)";
+  pdo_execute($sql, $new_id_order, $id_san_pham, $ten_san_pham, $hinh_anh, $so_luong, $don_gia);
+}
+
+function get_show_bill_info($order_id){
+  $sql="SELECT * FROM tbl_order WHERE id_order = $order_id";
+  $show = pdo_query_one($sql);
+  return $show;
+}
+function get_show_bill_detail($order_id){
+  $sql="SELECT * FROM order_detail WHERE id_order = $order_id";
+  $show = pdo_query($sql);
+  return $show;
+}
 ?>
