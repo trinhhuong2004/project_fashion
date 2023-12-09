@@ -26,4 +26,9 @@ function statisticalDate_ago(){
 $statistical_sale = pdo_query($sql);
 return $statistical_sale;
 }
+function statistical_product(){
+  $sql = "SELECT p.id, p.name, COUNT(dh.id_order) AS so_luong_ban, Sum(dh.tongtien) AS doanh_thu FROM sanpham p JOIN order_detail ct ON p.id = ct.id_pro JOIN tbl_order dh ON ct.id_order = dh.id_order GROUP BY p.id, p.name ORDER BY so_luong_ban DESC LIMIT 5;";
+  $statistical_product = pdo_query($sql);
+  return $statistical_product;
+}
 ?>

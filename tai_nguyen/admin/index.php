@@ -7,8 +7,11 @@ include "../model/sanpham.php";
 include "../model/taikhoan.php";
 include "../model/binhluan.php";
 include "../model/thongke.php";
+include "../model/donhang.php";
 include "header.php"; 
 $statisticalDate_ago = statisticalDate_ago();
+$statistical_product = statistical_product();
+// var_dump($statistical_product);die;
 $statistical_sale = statistical_sale(date('Y-m-d', time() - (86400 * 7)), date('Y-m-d', time()));
 ?>
 
@@ -24,6 +27,7 @@ $statistical_sale = statistical_sale(date('Y-m-d', time() - (86400 * 7)), date('
             
                 $statistical_sale = statistical_sale($start_date, $end_date, $choose_time);
             }
+            $statistical_product = statistical_product();
             $statisticalDate_ago = statisticalDate_ago();
             // var_dump($statisticalDate_ago);
             include 'home.php';
@@ -179,21 +183,53 @@ $statistical_sale = statistical_sale(date('Y-m-d', time() - (86400 * 7)), date('
                     }
                    
                 break;
+                   // Đơn hàng
+                   case 'donhang':
+                    $loadAll_donhang = loadAll_donhang();
+                    //var_dump($loadAll_donhang);die;
+                    include "donhang/listdh.php";
+                    break;
                  
-
+                   case 'chitietdh':
+                    if(isset($_GET['iddh'])){
+                       $donhang =  loadOne_donhang($_GET['iddh']);
+                          //var_dump($donhang);die;
+                    }
+                   // $loadAll_donhang = loadAll_donhang();
+                    include "donhang/chitietdh.php";
+                    break;
+                    case 'updatedh':
+                        if (isset($_POST['capnhat'])) {
+                            if (isset($_GET['iddh'])) {
+                                $trangthai = $_POST['trangthai'];
+                                $id = $_GET['iddh'];
+                                update_donhang($trangthai, $id);
+                                $thongbao = "Cập nhật thành công";
+                            } else {
+                                $thongbao = "Không có ID đơn hàng được cung cấp.";
+                            }
+                        } else {
+                            $thongbao = "Không có yêu cầu cập nhật được gửi đi.";
+                        }
+                    
+                        include "donhang/updatedh.php";
+                        break;
+                    
                 // Load tất cả bình luận
                 case "dsbl":
                     $listbinhluan = loadall_binhluan();
                     include "binhluan/list.php";
                     break;
-                    case 'xoabl':
-                        if(isset($_GET['id'])){
-                            $id = $_GET['id'];
-                            delete_binhluan($id);
-                            header('Location: index.php?act=dsbl'); // Sửa đường dẫn chuyển hướng
-                            // Đảm bảo kết thúc script sau khi chuyển hướng
-                        }
-                        break;
+        
+                case 'xoabl':
+                    if(isset($_GET['idbl'])){
+                        $id = $_GET['idbl'];
+                        delete_binhluan($id);
+                        header('Location: index.php?act=dsbl'); // Sửa đường dẫn chuyển hướng
+                        // Đảm bảo kết thúc script sau khi chuyển hướng
+                    }
+                    break;
+             
                     
             default:
             include "home.php";

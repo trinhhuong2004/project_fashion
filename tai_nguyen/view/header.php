@@ -80,8 +80,7 @@
         <div class="right-side float-none-sm">
           <div id="menu" class="navbar-collapse collapse left-side" >
             <ul class="nav navbar-nav navbar-left">
-              <li class="level"> <span class="opener plus"></span> <a href="index.php" class="page-scroll">Trang chủ</a></li>
-              <li class="level"> <span class="opener plus"></span> <a class="page-scroll">Sản phẩm</a>
+              <li class="level"> <span class="opener plus"></span> <a class="page-scroll">WOMEN</a>
                 <div class="megamenu mobile-sub-menu">
                   <div class="megamenu-inner-top">
                     
@@ -104,8 +103,37 @@
                   </div>
                 </div>
               </li>
-              <li class="level"> <span class="opener plus"></span> <a href="index.php?act=gioithieu" class="page-scroll">Giới thiệu</a></li>
-              <li class="level"> <span class="opener plus"></span> <a href="index.php?act=lienhe" class="page-scroll">Liên hệ</a></li>
+              <li class="level"> <span class="opener plus"></span> <a class="page-scroll">Men</a>
+                <div class="megamenu mobile-sub-menu">
+                  <div class="megamenu-inner-top">
+                    
+                      <?php
+                         foreach ($dsdm as $dm) {
+                        extract($dm);
+                        $linkdm="index.php?act=sanpham&iddm=".$id;
+                        echo '
+                          <ul class="sub-menu-level1">
+                          <li class="level2"> 
+                            <ul class="sub-menu-level2 ">
+                            <li class="level3"><a href="'.$linkdm.'"><span>■</span>'.$name.'</a></li>
+
+                            </ul>    
+                            </li>
+                          </ul>
+                        ';
+                         }?>
+                  
+                  </div>
+                </div>
+              </li>
+              <li class="level"> <span class="opener plus"></span> <a href="" class="page-scroll">JUNIORS</a>
+                
+              </li>
+              <li class="level"> <span class="opener plus"></span> <a class="page-scroll">KIDS</a>
+    
+              </li>
+              <li class="level"> <span class="opener plus"></span> <a href="index.php?act=gioithieu" class="page-scroll">ABOUT</a></li>
+              <li class="level"> <span class="opener plus"></span> <a href="index.php?act=lienhe" class="page-scroll">CONTACT</a></li>
 
             </ul>
           </div>

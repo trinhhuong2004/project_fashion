@@ -111,7 +111,8 @@
                                   <input type="hidden" name="price" value="<?=$price?>">
                                   <input type="hidden" name="mota" value="<?=$mota?>">
                                   <input type="hidden" name="soluong" value="1">
-                                  <input type="submit" name="addtocart" value="Thêm vào giỏ hàng">
+                                  <input type="submit" name="addtocart" value="Thêm giỏ hàng">
+                                  <!-- <button type="submit" name="addtocart"></button> -->
                                 </form>
                               </li>
                               <li class="pro-wishlist-icon"><a href="#"></a></li>
@@ -257,7 +258,8 @@
                               <input type="hidden" name="price" value="<?=$price?>">
                               <input type="hidden" name="mota" value="<?=$mota?>">
                               <input type="hidden" name="soluong" value="1">
-                              <input type="submit" name="addtocart" value="Thêm vào giỏ hàng">
+                              <input type="submit" name="addtocart" value="Thêm giỏ hàng">
+                              <!-- //<button type="submit" name="addtocart"></button> -->
                             </form>
                              </li>
                              <li class="pro-wishlist-icon"><a href="#"><span></span>Wishlist</a></li>

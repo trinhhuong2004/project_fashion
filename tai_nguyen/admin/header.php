@@ -11,6 +11,8 @@
     <script src="//cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <style>
     .card h3 {
@@ -86,6 +88,7 @@
               <li><a href="index.php?act=addsp">Hàng hóa</a></li>
               <li><a href="index.php?act=dskh">Khách hàng</a></li>
               <li><a href="index.php?act=dsbl">Bình luận</a></li>
+              <li><a href="index.php?act=donhang">Đơn hàng</a></li>
               <li><a href="index.php?act=thongke">Thống kê</a></li>
             </ul>
       </nav>

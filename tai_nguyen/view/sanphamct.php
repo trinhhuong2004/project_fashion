@@ -81,14 +81,15 @@
                          <ul>
                            <ul>
                              <li class="pro-cart-icon">
-
-                               <input type="hidden" name="id" value="<?= $id ?>">
-                               <input type="hidden" name="name" value="<?= $name ?>">
-                               <input type="hidden" name="img" value="<?= $img ?>">
-                               <input type="hidden" name="price" value="<?= $price ?>">
-                               <input type="hidden" name="mota" value="<?= $mota ?>">
-                               <input type="submit" name="addtocart" value="Thêm vào giỏ hàng">
-                               </form>
+                             <form action="index.php?act=addcart" method="post">
+                              <input type="hidden" name="id" value="<?=$id?>">
+                              <input type="hidden" name="name" value="<?=$name?>">
+                              <input type="hidden" name="img" value="<?=$img?>">
+                              <input type="hidden" name="price" value="<?=$price?>">
+                              <input type="hidden" name="mota" value="<?=$mota?>">
+                              <input type="hidden" name="soluong" value="1">
+                              <input type="submit" name="addtocart" value="Thêm vào giỏ hàng">
+                            </form>
                              </li>
                              <li class="pro-wishlist-icon"><a href="#"></a></li>
                              <li class="pro-compare-icon"><a href="#"></a></li>
@@ -130,9 +131,9 @@
              <div class="col-md-12">
                <div id="tabs">
                  <ul class="nav nav-tabs">
-                   <li><a class="tab-Description selected" title="Description">Description</a></li>
-                   <li><a class="tab-Product-Tags" title="Product-Tags">Product-Tags</a></li>
-                   <li><a class="tab-Reviews" title="Reviews">Reviews</a></li>
+                   <li><a class="tab-Description selected" title="Description">Mô tả</a></li>
+                
+                   <li><a class="tab-Reviews" title="Reviews">Bình luận</a></li>
                  </ul>
                </div>
                <div id="items">
@@ -140,97 +141,54 @@
                    <ul>
                      <li>
                        <div class="items-Description selected gray-bg">
-                         <div class="Description"> <strong>The standard Lorem Ipsum passage, used since the 1500s</strong><br />
-                           <p>Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets</p>
-                           <p>Tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                         <div class="Description"> <strong>Mô tả sản phẩm</strong><br />
+                        <p><?=$mota?></p>
                          </div>
                        </div>
                      </li>
                      <li>
-                       <div class="items-Product-Tags gray-bg"><strong>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</strong><br />
-                         Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur</div>
-                     </li>
-                     <li>
                        <div class="items-Reviews gray-bg">
                          <div class="comments-area">
-                           <h4>Comments<span>(2)</span></h4>
+                           <h4>Bình luận</h4>
+                           <?php 
+                        foreach ($loadone_binhluan as $value) {
+                        extract( $value );
+                        ?>
                            <ul class="comment-list mt-30">
                              <li>
                                <div class="comment-user"> <img src="images/comment-user.jpg" alt="Honour"> </div>
                                <div class="comment-detail">
-                                 <div class="user-name">John Doe</div>
+                                 <div class="user-name"><?=$user?></div>
                                  <div class="post-info">
                                    <ul>
-                                     <li>Fab 11, 2016</li>
-                                     <li><a href="#"><i class="fa fa-reply"></i>Reply</a></li>
+                                     <li><?=$ngaybinhluan?></li>
+                                    
                                    </ul>
                                  </div>
-                                 <p>Consectetur adipiscing elit integer sit amet augue laoreet maximus nuncac.</p>
-                               </div>
-                               <ul class="comment-list child-comment">
-                                 <li>
-                                   <div class="comment-user"> <img src="images/comment-user.jpg" alt="Honour"> </div>
-                                   <div class="comment-detail">
-                                     <div class="user-name">John Doe</div>
-                                     <div class="post-info">
-                                       <ul>
-                                         <li>Fab 11, 2016</li>
-                                         <li><a href="#"><i class="fa fa-reply"></i>Reply</a></li>
-                                       </ul>
-                                     </div>
-                                     <p>Consectetur adipiscing elit integer sit amet augue laoreet maximus nuncac.</p>
-                                   </div>
-                                 </li>
-                                 <li>
-                                   <div class="comment-user"> <img src="images/comment-user.jpg" alt="Honour"> </div>
-                                   <div class="comment-detail">
-                                     <div class="user-name">John Doe</div>
-                                     <div class="post-info">
-                                       <ul>
-                                         <li>Fab 11, 2016</li>
-                                         <li><a href="#"><i class="fa fa-reply"></i>Reply</a></li>
-                                       </ul>
-                                     </div>
-                                     <p>Consectetur adipiscing elit integer sit amet augue laoreet maximus nuncac.</p>
-                                   </div>
-                                 </li>
-                               </ul>
-                             </li>
-                             <li>
-                               <div class="comment-user"> <img src="images/comment-user.jpg" alt="Honour"> </div>
-                               <div class="comment-detail">
-                                 <div class="user-name">John Doe</div>
-                                 <div class="post-info">
-                                   <ul>
-                                     <li>Fab 11, 2016</li>
-                                     <li><a href="#"><i class="fa fa-reply"></i>Reply</a></li>
-                                   </ul>
-                                 </div>
-                                 <p>Consectetur adipiscing elit integer sit amet augue laoreet maximus nuncac.</p>
+                                 <p><?=$noidung?></p>
                                </div>
                              </li>
                            </ul>
+                          <?php }?>
                          </div>
                          <div class="main-form mt-30">
-                           <h4>Leave a comments</h4>
+                           <h4>Để lại một bình luận</h4>
                            <div class="row mt-30">
-                             <form>
-                               <div class="col-sm-4 mb-30">
-                                 <input type="text" placeholder="Name" required>
-                               </div>
-                               <div class="col-sm-4 mb-30">
-                                 <input type="email" placeholder="Email" required>
-                               </div>
-                               <div class="col-sm-4 mb-30">
-                                 <input type="text" placeholder="Website" required>
-                               </div>
-                               <div class="col-xs-12 mb-30">
-                                 <textarea cols="30" rows="3" placeholder="Message" required></textarea>
-                               </div>
-                               <div class="col-xs-12 mb-30">
-                                 <button class="btn-black" name="submit" type="submit">Submit</button>
-                               </div>
-                             </form>
+                           <form action="index.php?act=sanphamct&idsp=<?=$id?>" method="post" style="height: 300px;">
+                             
+                                <div class="col-xs-12 mb-30">
+                                    <textarea cols="30" rows="3" name="noidung" placeholder="Message" required></textarea>
+          
+                                    <input type="hidden" name="idpro" value="<?=$id?>">
+                                    <input type="hidden" name="iduser" value="<?= isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : '' ?>">
+                                    <input type="hidden" name="ngaybinhluan" value="<?php echo date('Y-m-d'); ?>" required>
+                                </div>
+                                <div class="col-xs-12 mb-30">
+                                    <button class="btn-black" name="submit" type="submit">Submit</button>
+                                </div>
+                                <p><?php if(isset($mess)) echo $mess ?></p>
+                            </form>
+
                            </div>
                          </div>
                        </div>
@@ -308,11 +266,6 @@
                     $i += 1;
                   endforeach;
                   ?>
-
-
-
-
-
 
                </div>
              </div>

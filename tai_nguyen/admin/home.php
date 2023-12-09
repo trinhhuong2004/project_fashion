@@ -58,6 +58,7 @@
     </head>
 </html>
 <div class="card">
+    
     <div>
         <h3>Thống kê doanh thu đơn hàng</h3>
         <form action="index.php?act=home" method="POST">
@@ -139,8 +140,10 @@
         </thead>
         <tbody>
             
-            <?php foreach ($statisticalDate_ago as $value) {
-                // var_dump($statisticalDate_ago);die;
+            <?php
+            
+             foreach ($statisticalDate_ago as $value) {
+                // var_dump($statistical_product);die;
                 // Load tổng doanh thu đơn hàng theo tháng
             extract($value);
             echo'     <tr>
@@ -163,4 +166,98 @@
         </tbody>
     </table>
     <img src="" alt="">
+</div>
+
+
+
+
+<div class="card">
+    <div>
+        <h3>Thống kê top 5 sản phẩm bán chạy</h3>
+        
+    </div>
+    <div>
+                            <div id="myChart" style="width:1400px; height:400px;"></div>
+
+                            <script type="text/javascript">
+                                google.charts.load('current', {'packages':['corechart']});
+                                google.charts.setOnLoadCallback(drawChart);
+
+                                function drawChart() {
+                                    var data = google.visualization.arrayToDataTable([
+                                        ['Tên sản phẩm', 'Số lượng bán', 'Doanh thu'],
+                                        <?php
+                                            foreach ($statistical_product as $tk){
+                                               
+                                                extract($tk);
+                                                echo "['".$tk['name']."', ".$tk['so_luong_ban'].", ".$tk['doanh_thu']."],";
+                                            }
+                                        ?>
+                                    ]);
+
+                                    var options = {
+                                        title: 'Thống kê sản phẩm phổ biến nhất',
+                                        bars: 'vertical',
+                                        series: {
+                                            0: { targetAxisIndex: 0 }, // Số lượng bán
+                                            1: { targetAxisIndex: 1 }  // Doanh thu
+                                        },
+                                        axes: {
+                                            y: {
+                                                0: {label: 'Số lượng bán'},
+                                                1: {label: 'Doanh thu'}
+                                            }
+                                        },
+                                        vAxes: {
+                                            0: {title: 'Số lượng bán'},
+                                            1: {title: 'Doanh thu'}
+                                        },
+                                        is3D: true
+                                    };
+
+                                    var chart = new google.visualization.ColumnChart(document.getElementById('myChart'));
+                                    chart.draw(data, options);
+                                }
+                            </script>
+
+                            </div>
+                            
+   
+</div>
+<a href="#"><button class="btn btn-danger" style="margin-bottom: 20px;">Thông tin chi tiết thống kê</button></a>
+
+<div class="row">
+<table class="table" style="text-align: center;">
+        <thead>
+            <tr>
+                <th scope="col">Mã sản phẩm</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Số lượng bán</th>
+                <th scope="col">Tổng đơn hàng</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            
+            <?php foreach ($statistical_product as $value) {
+             
+                // Load tổng doanh thu đơn hàng theo tháng
+            extract($value);
+            echo'     <tr>
+            <td scope="col">'.$id.'</td>
+            <td scope="col">'.$name.'</td>
+            <td scope="col">'.$so_luong_ban.'</td>
+            <td scope="col">'.$doanh_thu.'</td>
+           
+            
+            </tr>';
+            
+            }?>
+
+            </td>
+
+
+        </tbody>
+    </table>
+
 </div>

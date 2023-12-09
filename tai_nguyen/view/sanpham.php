@@ -169,54 +169,62 @@
           <div class="product-listing">
             <div class="row">
                  
-              <?php
-                $i=0;
-                       foreach ($dssp as $sp ) {
-                        extract($sp);
-                        $linksp="index.php?act=sanphamct&idsp=".$id;
-                        $hinh=$img_path.$img;
-                        if(($i==2)||($i==5)||($i==8)||($i==12)){
-                           $mr="";
-                        }else{
-                           $mr="mr";
-                        }
-                        echo '<div class="col-md-4 col-sm-6">
-                        <div class="product-item">
-                          
-                          <div class="product-image"> <a href="'.$linksp.'"> <img src="'.$hinh.'" alt=""> </a>
-                            <div class="product-detail-inner">
-                              <div class="detail-inner-left left-side">
-                              <ul>
-                              <li class="pro-cart-icon">
-                                <form action="index.php?act=addtocart" method="post">
-                                <input type="hidden" name="id" value="'.$id.'">
-                                <input type="hidden" name="name" value="'.$name.'">
-                                <input type="hidden" name="img" value="'.$img.'">
-                                <input type="hidden" name="price" value="'.$price.'">
-                                <input type="submit" name="addtocart" value="Thêm vào giỏ hàng">
-                                </form>
-                              </li>
-                              <li class="pro-wishlist-icon"><a href="#"></a></li>
-                              <li class="pro-compare-icon"><a href="#"></a></li>
-                            </ul>
+            <?php
+              $i = 0;
+
+              foreach ($dssp as $sp) {
+                  extract($sp);
+                  $linksp = "index.php?act=sanphamct&idsp=" . $id;
+                  $hinh = $img_path . $img;
+
+                  $mrClass = ($i == 2 || $i == 5 || $i == 8 || $i == 12) ? "" : "mr";
+
+                  echo '<div class="col-md-4 col-sm-6">
+                          <div class="product-item">
+                              <div class="product-image">
+                                  <a href="' . $linksp . '">
+                                      <img src="' . $hinh . '" alt="">
+                                  </a>
+                                  <div class="product-detail-inner">
+                                      <div class="detail-inner-left left-side">
+                                          <ul>
+                                              <li class="pro-cart-icon">
+                                                  <form action="index.php?act=addcart" method="post">
+                                                      <input type="hidden" name="id" value="' . $id . '">
+                                                      <input type="hidden" name="name" value="' . $name . '">
+                                                      <input type="hidden" name="img" value="' . $img . '">
+                                                      <input type="hidden" name="price" value="' . $price . '">
+                                                      <input type="hidden" name="mota" value="' . $mota . '">
+                                                      <input type="hidden" name="soluong" value="1">
+                                                      <input type="submit" name="addtocart" value="Thêm vào giỏ hàng">
+                                                  </form>
+                                              </li>
+                                              <li class="pro-wishlist-icon"><a href="#"></a></li>
+                                              <li class="pro-compare-icon"><a href="#"></a></li>
+                                          </ul>
+                                      </div>
+                                      <div class="rating-summary-block right-side">
+                                          <div title="53%" class="rating-result">
+                                              <span style="width:53%"></span>
+                                          </div>
+                                      </div>
+                                  </div>
                               </div>
-                              <div class="rating-summary-block right-side">
-                                <div title="53%" class="rating-result"> <span style="width:53%"></span> </div>
+                              <div class="product-item-details">
+                                  <div class="product-item-name">
+                                      <a href="' . $linksp . '">' . $name . '</a>
+                                  </div>
+                                  <div class="price-box">
+                                      <span class="price">' . $price . '</span>
+                                      <del class="price old-price">$100.00</del>
+                                  </div>
                               </div>
-                            </div>
                           </div>
-                          <div class="product-item-details">
-                            <div class="product-item-name"> <a href="'.$linksp.'">'.$name.'</a> </div>
-                            <div class="price-box"> <span class="price">'.$price.'</span> <del class="price old-price">$100.00</del> </div>
-                          </div>
-                        
-              </div>
-                       
-          </div> ';
-                         $i+=1;
-                        
-                       }
-                ?>
+                      </div>';
+
+                  $i++;
+              }
+              ?>
 
               <!-- <div class="col-md-4 col-sm-6">
                 <div class="product-item">

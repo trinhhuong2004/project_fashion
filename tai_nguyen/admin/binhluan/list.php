@@ -61,14 +61,14 @@
                <?php
                foreach($listbinhluan as $bl){
                    extract($bl);
-                   $xoasp="index.php?act=xoabl&id=".$id;
+                   $xoasp="index.php?act=xoabl&idbl=".$id;
                   
                    echo ' <tr>
                         <td><input type="checkbox" name="" id=""></td>
                         <td>'.$id.'</td>
                         <td>'.$noidung.'</td>
-                        <td>'.$iduser.'</td>
-                        <td>'.$idpro.'</td>
+                        <td>'.$user.'</td>
+                        <td>'.$name.'</td>
                         <td>'.$ngaybinhluan.'</td>
                         <td></td>
                     <td> <a href="'.$xoasp.'"><input type="button" value="Xóa"></a> </td>

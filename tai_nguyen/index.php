@@ -7,6 +7,7 @@ include "model/taikhoan.php";
 include "model/danhmuc.php";
 include "model/order.php";
 include "model/cart.php";
+include "model/binhluan.php";
 // include "order-complete.php";
 ///ảnh lên home
 include "global.php";
@@ -152,58 +153,36 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $tendm = load_ten_dm($iddm);
                 include "view/sanpham.php";
                 break;
-        
-
-        
-        // case "order":
-        //     if (isset($_SESSION['cart'])) {
-        //         $cart = $_SESSION['cart'];
-        //         // print_r($cart);
-        //         if (isset($_POST['order_confirm'])) {
-        //             $txthoten = $_POST['txthoten'];
-        //             $txttel = $_POST['txttel'];
-        //             $txtemail = $_POST['txtemail'];
-        //             $txtaddress = $_POST['txtaddress'];
-        //             $pttt = $_POST['pttt'];
-        //             // date_default_timezone_set('Asia/Ho_Chi_Minh');
-        //             // $currentDateTime = date('Y-m-d H:i:s');
-        //             if (isset($_SESSION['user'])) {
-        //                 $id_user = $_SESSION['user']['id'];
-        //             } else {
-        //                 $id_user = 0;
-        //             }
-        //             $idBill = addOrder($id_user, $txthoten, $txttel, $txtemail, $txtaddress, $_SESSION['resultTotal'], $pttt);
-        //             foreach ($cart as $item) {
-        //                 addOrderDetail($idBill, $item['id'], $item['price'], $item['quantity'], $item['price'] * $item['quantity']);
-        //             }
-        //             unset($_SESSION['cart']);
-        //             $_SESSION['success'] = $idBill;
-        //             header("Location: index.php?act=success");
-        //         }
-        //         include "view/order.php";
-        //     } else {
-        //         header("Location: index.php?act=listCart");
-        //     }
-        //     break;
-        // case "success":
-        //     if (isset($_SESSION['success'])) {
-        //         include 'view/success.php';
-        //     } else {
-        //         header("Location: index.php");
-        //     }
-        //     break;
+    
         case "sanphamct":
+            if(isset($_POST['submit'])){
+                $noidung = $_POST['noidung'];
+                $idpro = $_POST['idpro'];
+                $iduser = $_POST['iduser'];
+                $ngaybinhluan = $_POST['ngaybinhluan'];
+                insert_binhluan($noidung, $iduser, $idpro, $ngaybinhluan);
+               if(!isset($_SESSION['user'])){
+                $mess = "Bạn phải đăng nhập để bình luận";
+               }else{
+                $mess = "";
+               }
+            }else{
+                $error = "Bạn cần điền thông tin bình luận";
+            }
             if (isset($_GET['idsp']) && ($_GET['idsp'] > 0)) {
                 $id = $_GET['idsp'];
                 $onesp = loadone_sanpham($id);
                 extract($onesp);
                 $sp_cung_loai = load_sanpham_cungloai($id,$iddm);
-                
-                include "view/sanphamct.php";
-            } else {
-                include "view/home.php";
-            }
+                $loadone_binhluan = loadone_binhluan($_GET['idsp']);
+
+            }  
+       
+            include "view/sanphamct.php";
             break;
+       
+            
+            
         case "dangky":
             if (isset($_POST['dangky']) && ($_POST['dangky'])) {
                 $email = $_POST['email'];
@@ -258,6 +237,9 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             }
             include "view/taikhoan/quenmk.php";
             break;
+        //Thêm bình luận
+        
+       
         case "thoat":
             session_unset();
             header('Location: index.php?act=dangnhap');
